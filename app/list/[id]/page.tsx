@@ -22,7 +22,7 @@ async function getBookList(id:string) {
 }
 export default async function List({params}:IParam) {
     const {id} = await params;
-    const {book_details} = await getBookList(id);
+    const book_details = await getBookList(id);
 
     return (
         <div className={styles.main}>
@@ -30,7 +30,7 @@ export default async function List({params}:IParam) {
                 <h1>{id.replace(/%20/g, " ")}</h1>
                 <div className={styles.container}>
                     {book_details.map((book) => (
-                        <div className={styles.bookCover}>
+                        <div className={styles.bookCover} key={book.primary_isbn10}>
                             <img className={styles.image} key={book.book_image} src={book.book_image}/>
                             <div className={styles.title} key={book.title}>{book.title}</div>
                             <div className={styles.author} key={book.author}>{book.author}</div>
