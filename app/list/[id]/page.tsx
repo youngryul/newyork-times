@@ -9,6 +9,10 @@ export const metadata :Metadata= {
 
 }
 
+interface IParam {
+    params: Promise<{id: string}>
+}
+
 
 async function getBookList(id:string) {
     const response = await fetch(`${DETAIL_URL}?name=${id}`)
@@ -16,9 +20,9 @@ async function getBookList(id:string) {
 
     return json.results.books;
 }
-export default async function List({params}:Promise<{params: {id: string}}>) {
-    const { id } = await params;
-    const book_details = await getBookList(id);
+export default async function List({params}:IParam) {
+    const {id} = await params;
+    const {book_details} = await getBookList(id);
 
     return (
         <div className={styles.main}>
