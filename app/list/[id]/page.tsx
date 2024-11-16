@@ -2,6 +2,12 @@ import {Suspense} from "react";
 import {DETAIL_URL} from "../../api";
 import styles from "./list.module.css"
 import Link from "next/link";
+import {Metadata} from "next";
+
+export const metadata :Metadata= {
+    title: "Book List"
+
+}
 
 
 async function getBookList(id:string) {

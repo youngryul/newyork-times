@@ -1,6 +1,12 @@
 import styles from "./home.module.css"
 import {LIST_URL} from "../api";
 import Link from "next/link";
+import {Metadata} from "next";
+
+export const metadata :Metadata= {
+    title: "Best Seller"
+
+}
 
 async function getBookList() {
     const response = await fetch(LIST_URL);
