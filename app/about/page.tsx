@@ -1,3 +1,11 @@
+import styles from "./about.module.css"
+
 export default function About() {
-    return <h1>about</h1>
+    return (
+        <div className={styles.container}>
+            <h1 className={styles.title}>ABOUT US</h1>
+            <span className={styles.content}>Welcome to the official explorer for The New York Times Best Seller list explorer.</span>
+            <span className={styles.content}>We hope you enjoy your stay!</span>
+        </div>
+    )
 }
